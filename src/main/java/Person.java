@@ -10,6 +10,7 @@ public class Person {
     private int age;
     private Person mother;
     private Person father;
+    private Person partner;
     private List<Person> siblings = new ArrayList<Person>();
     private List<Person> children = new ArrayList<Person>();
     private List<Pet> pets = new ArrayList<Pet>();
@@ -58,6 +59,8 @@ public class Person {
         return father;
     }
 
+    public Person getPartner() { return partner; }
+
     public List<Person> getSiblings() {
         return siblings;
     }
@@ -98,6 +101,8 @@ public class Person {
     public void setFather(Person father) {
         this.father = father;
     }
+
+    public void setPartner(Person partner) { this.partner = partner; }
 
     public void setSiblings(List<Person> siblings) {
         this.siblings = siblings;

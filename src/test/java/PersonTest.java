@@ -138,6 +138,18 @@ class PersonTest {
         assertEquals("Bauke", fatherName);
     }
     @Test
+    public void canSetAndGetPartner() {
+        // Arrange
+        Person papa = new Person("Bauke", "van der Meer", "male", 60);
+        Person mama = new Person("Anja", "van der Meer", "female", 55);
+
+        // Act
+        papa.setPartner(mama);
+        String partnerName = papa.getPartner().getName();
+        // Assert
+        assertEquals("Anja", partnerName);
+    }
+    @Test
     public void canSetAndGetSiblings() {
         // Arrange
         Person p = new Person("Stijn", "SmallS", "van der Meer", "male", 22);
