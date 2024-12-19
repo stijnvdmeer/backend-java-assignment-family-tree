@@ -125,6 +125,7 @@ public class Person {
     }
     public void addSibling(Person sibling) {
         this.siblings.add(sibling);
+
     }
 
     public List<Person> getGrandChildren() {
@@ -142,5 +143,18 @@ public class Person {
             }
         }
         return pets;
+    }
+    public List<Person> GetNieces() {
+        // If you wish you change this to both nieces and nephews remove the statement
+        List<Person> nieces = new ArrayList<Person>();
+        for(Person sibling : this.siblings) {
+            for(Person child : sibling.children) {
+                if(child.sex == "female") {
+                    nieces.add(child);
+                }
+            }
+        }
+
+        return nieces;
     }
 }

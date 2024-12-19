@@ -234,4 +234,29 @@ class PersonTest {
         // Assert
         assertEquals("Tessa", petname);
     }
+    @Test
+    public void canGetNieces() {
+        // Arrange
+        Person mc = new Person("Bauke", "van der Meer", "male", 60);
+        Person s1 = new Person("Jochem", "van der Meer", "male", 40);
+        Person s2 = new Person("Cariane", "van het Hof", "female", 35);
+        Person c1_1 = new Person("Kyran", "van der Meer", "male", 16);
+        Person c1_2 = new Person("Marja", "van der Meer", "female", 9);
+        Person c2_1 = new Person("Noah", "van het Hof", "female", 18);
+        Person c2_2 = new Person("Crissy", "van het Hof", "female", 14);
+
+        mc.addSibling(s1);
+        mc.addSibling(s2);
+        s1.addChild(c1_1);
+        s1.addChild(c1_2);
+        s2.addChild(c2_1);
+        s2.addChild(c2_2);
+
+        // Act
+        String nieceName = mc.GetNieces().get(1).getName();
+
+
+        // Assert
+        assertEquals("Noah", nieceName);
+    }
 }
