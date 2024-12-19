@@ -153,5 +153,33 @@ class PersonTest {
         assertEquals("Daan", siblingName);
     }
     @Test
-    public void canSetAndGetChildren() {}
+    public void canSetAndGetChildren() {
+        // Arrange
+        Person p = new Person("Bauke", "Hendrik", "van der Meer", "male", 60);
+        Person c1 = new Person("Stijn", "van der Meer", "male", 22);
+        Person c2 = new Person("Jelle", "van der Meer", "male", 30);
+
+        // Act
+        p.addChild(c1);
+        p.addChild(c2);
+        String childName = p.getChildren().get(0).getName();
+
+        // Assert
+        assertEquals("Stijn", childName);
+    }
+    @Test
+    public void canSetAndGetPets() {
+        // Arrange
+        Person p = new Person("Stijn", "SmallS", "van der Meer", "male", 22);
+        Pet a1 = new Pet("Tessa", 13, "Hond");
+        Pet a2 = new Pet("Lotje", 6, "Kat");
+
+        // Act
+        p.addPet(a1);
+        p.addPet(a2);
+        String petName = p.getPets().get(0).getName();
+
+        // Assert
+        assertEquals("Tessa", petName);
+    }
 }
