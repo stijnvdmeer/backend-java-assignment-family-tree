@@ -102,7 +102,10 @@ public class Person {
         this.father = father;
     }
 
-    public void setPartner(Person partner) { this.partner = partner; }
+    public void setPartner(Person partner) {
+        this.partner = partner;
+    }
+
 
     public void setSiblings(List<Person> siblings) {
         this.siblings = siblings;
