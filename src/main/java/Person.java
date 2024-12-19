@@ -126,11 +126,21 @@ public class Person {
     public void addSibling(Person sibling) {
         this.siblings.add(sibling);
     }
+
     public List<Person> getGrandChildren() {
         List<Person> grandChildren = new ArrayList<Person>();
-        for(Person child : children) {
+        for(Person child : this.children) {
             grandChildren.addAll(0, child.children);
         }
         return grandChildren;
+    }
+    public List<Pet> getGrandKidPets() {
+        List<Pet> pets = new ArrayList<Pet>();
+        for(Person Child : this.children) {
+            for(Person GrandChild : Child.children) {
+                pets.addAll(0, GrandChild.pets);
+            }
+        }
+        return pets;
     }
 }

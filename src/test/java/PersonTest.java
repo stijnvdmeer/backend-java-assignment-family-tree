@@ -182,4 +182,56 @@ class PersonTest {
         // Assert
         assertEquals("Tessa", petName);
     }
+    @Test
+    public void canGetGrandChildren() {
+        // Arrange
+        Person p = new Person("Kees", "van der Meer", "male", 0);
+        Person c1 = new Person("Bauke", "van der Meer", "male", 60);
+        Person c2 = new Person("Jochem", "van der Meer", "male", 40);
+        Person gc1_1 = new Person("Jelle", "van der Meer", "male", 30);
+        Person gc1_2 = new Person("Stijn", "van der Meer", "male", 22);
+        Person gc2_1 = new Person("Kyran", "van der Meer", "male", 16);
+        Person gc2_2 = new Person("Yigall", "van der Meer", "male", 13);
+
+        p.addChild(c1);
+        p.addChild(c2);
+        c1.addChild(gc1_1);
+        c1.addChild(gc1_2);
+        c2.addChild(gc2_1);
+        c2.addChild(gc2_2);
+
+        // Act
+        String grandChildrenName = p.getGrandChildren().get(3).getName();
+
+        // Assert
+        assertEquals("Stijn", grandChildrenName);
+    }
+
+    @Test
+    public void canGetGrandChildrenPets() {
+        // Arrange
+        Person p = new Person("Kees", "van der Meer", "male", 0);
+        Person c1 = new Person("Bauke", "van der Meer", "male", 60);
+        Person c2 = new Person("Jochem", "van der Meer", "male", 40);
+        Person gc1 = new Person("Stijn", "van der Meer", "male", 22);
+        Person gc2 = new Person("Kyran", "van der Meer", "male", 16);
+        Pet a1 = new Pet("Tessa", 13, "Hond");
+        Pet a2 = new Pet("Henk", 1, "Muis");
+        Pet a3 = new Pet("Lotje", 6, "Kat");
+
+        p.addChild(c1);
+        p.addChild(c2);
+        c1.addChild(gc1);
+        c2.addChild(gc2);
+        gc1.addPet(a1);
+        gc1.addPet(a3);
+        gc2.addPet(a2);
+
+        // Act
+        String petname = p.getGrandKidPets().get(1).getName();
+
+
+        // Assert
+        assertEquals("Tessa", petname);
+    }
 }
